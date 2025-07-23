@@ -13,25 +13,26 @@ from .models import LineaPedido, Pedido
 def procesar_pedido(request):
     pedido = Pedido.objects.create(user= request.user)
     carro = Carro(request)
-    # print(pedido.total)
+
     lineas_pedidos = list()
     for key, value in carro.carro.items():
         lineas_pedidos.append(LineaPedido(
             producto_id = key,
             cantidad = value['cantidad'],
+            precio = float(value['precio']),
             user = request.user,
             pedido_id = pedido.id
         ))
-
+    
     LineaPedido.objects.bulk_create(lineas_pedidos)
-    print(lineas_pedidos)
+    print("El precio es: ", lineas_pedidos[0].precio)
     enviar_mail(
         pedido = pedido,
         lineas_pedidos = lineas_pedidos,
         nombreusuario = request.user.username,
         emailusuario = request.user.email
     )
-
+    # print("El total es:",pedido.total)
     messages.success(request, 'El pedido se ha creado correctamente')
 
     return redirect('Tienda')

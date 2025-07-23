@@ -30,6 +30,7 @@ class LineaPedido(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     cantidad = models.IntegerField(default=1)
+    precio = models.FloatField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add= True)
 
     def __str__(self):

@@ -3,38 +3,97 @@
 {% load static %}
 
 {% block content %}
-    <div class="container" style="margin: 5px auto;">
-        <div style="float: right;">
 
-            {% if request.user.is_authenticated %}
+<style>
+    @media (max-width: 576px) {
 
-                {% include 'widget.html' %}
+        .card {
 
-            {% else %}
-                <div class="alert alert-danger text center">Hacer Login</div>
+            margin: 0 10px;
+            /* Pequeño margen a los lados */
 
-            {% endif %}
-        </div> 
+        }
 
-        <div class="row">
-            {% for producto in productos %}
-                <div class="col-md-3 mb-4">
+        .btn-success {
+
+            padding: 8px 16px;
+            /* Botón más compacto */
+
+            font-size: 14px;
+
+        }
+
+    }
+</style>
+
+<div class="container" style="margin: 5px auto;">
+
+    <div class="row">
+
+        <!-- Columna principal para productos -->
+
+        <div class="col-lg-9 col-md-12 order-md-1 order-2">
+
+            <div class="row">
+
+                {% for producto in productos %}
+
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-4">
+
                     <div class="card h-100">
-                        <img src="{{producto.imagen.url}}" alt="" class="card-img-top" style="object-fit: cover; height: 250px;">
+
+                        <img src="{{producto.imagen.url}}" alt="" class="card-img-top"
+                            style="object-fit: cover; height: 250px;"
+                            srcset="{{producto.imagen.url}} 600w, {{producto.imagen_mobile.url}} 300w"
+                            sizes="(max-width: 576px) 300px, 600px">
+
+
 
                         <div class="card-body d-flex flex-column">
+
                             <h5 class="card-title">{{producto.nombre}}</h5>
+
                             <p class="card-text mt-auto">S/. {{producto.precio}}</p>
+
                         </div>
 
-                        <div class="card-footer" style="margin: auto;">
-                            <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al carrito</a>
+
+
+                        <div class="card-footer text-center">
+
+                            <a href="{% url 'carro:agregar' producto.id %}" class="btn btn-success">Agregar al
+                                carrito</a>
+
                         </div>
 
                     </div>
+
                 </div>
-            {% endfor %}
+
+                {% endfor %}
+
+            </div>
+
         </div>
+
+        <!-- Columna para el carrito -->
+
+        <div class="col-lg-3 col-md-12 order-md-2 order-1 mb-4">
+
+            {% if request.user.is_authenticated %}
+
+            {% include 'widget.html' %}
+
+            {% else %}
+
+            <div class="alert alert-danger text-center">Hacer Login</div>
+
+            {% endif %}
+
+        </div>
+
     </div>
+
+</div>
 
 {% endblock %}

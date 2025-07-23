@@ -28,7 +28,7 @@
     {% endfor %}
 
     <section>
-        <div style="width: 75%; margin: auto; text-align: center; color: white;">
+        <div style="width: 75%; margin: auto; text-align: center; color: white; margin-top: 12rem;">
             Categorías: 
             {% for categoria in categorias %} 
                 <a href="{% url 'Categoria' categoria.id %}" class="linksCategorias">{{categoria.nombre}}</a> {% if not forloop.last %} | {% endif %} 

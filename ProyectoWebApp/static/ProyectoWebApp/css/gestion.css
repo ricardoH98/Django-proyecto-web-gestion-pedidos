@@ -1,6 +1,6 @@
 body {
   font-family: 'Lora';
-  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/bg_main.jpg");
+  background: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../img/bg_main2.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -49,7 +49,7 @@ p {
 }
 
 .section-heading {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .section-heading .section-heading-upper {
@@ -64,6 +64,7 @@ p {
   display: block;
   font-size: 3rem;
   font-weight: 100;
+  text-transform: uppercase;
 }
 
 
@@ -80,7 +81,9 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(24, 64, 8);
+  /* background-color: rgba(24, 64, 8); */
+  /* background-color: rgba(62, 92, 64, 0.8); */
+  background-color: rgba(0, 23, 251, 1);
   font-family: 'Raleway';
 }
 
@@ -136,8 +139,12 @@ p {
   .intro .intro-text {
     left: 600;
     width: 60%;
-    margin-top: 3rem;
+    /* width: 80%; */
+    /* margin-top: 3rem; */
+    margin-top: 0rem;
     background-color: rgba(24, 64, 8);
+    /* background-color: rgba(62, 92, 64, 0.8); */
+    background-color: rgba(0, 23, 251, 1);
     color: cornsilk;
     position: absolute;
   }
@@ -153,6 +160,7 @@ p {
 @media (min-width: 1200px) {
   .intro .intro-text {
     width: 45%;
+    width: 60%;
   }
 }
 
@@ -160,6 +168,7 @@ p {
   padding-top: 5rem;
   padding-bottom: 5rem;
   background-color: rgb(242, 245, 240);
+  background-color: transparent;
 }
 
 .cta .cta-inner {
@@ -167,6 +176,7 @@ p {
   padding: 3rem;
   margin: 0.5rem;
   background-color: rgba(24, 64, 8);
+  background-color: rgba(0, 23, 251, 1);
   color: cornsilk;
 }
 
@@ -178,7 +188,7 @@ p {
   bottom: -0.5rem;
   left: -0.5rem;
   right: -0.5rem;
-  border: 0.25rem solid rgba(255, 255, 255, 0.85);
+  /* border: 0.25rem solid rgba(255, 255, 255, 0.85); */
 }
 
 .cta .cta-innerv {
@@ -237,6 +247,7 @@ p {
 
 .footer {
   background-color: rgba(24, 64, 8, 0.8);
+  background-color: rgba(0, 23, 251, 1);
 }
 
 
@@ -296,6 +307,7 @@ a.linksCategorias:hover {
 
 .contenedorFormulario {
   background-color: rgba(24, 64, 8);
+  background-color: rgba(0, 23, 251, 1);
   width: 50%;
   margin: 10px auto;
   border-radius: 5px;
